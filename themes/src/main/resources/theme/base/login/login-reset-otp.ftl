@@ -1,5 +1,6 @@
 <#import "template.ftl" as layout>
 <#import "buttons.ftl" as buttons>
+<#import "otp-credential.ftl" as otpCredentialCard>
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('totp'); section>
     <#if section="header">
         ${msg("doLogIn")}
@@ -10,17 +11,9 @@
                 <div class="${properties.kcInputWrapperClass!}">
                     <p id="kc-otp-reset-form-description">${msg("otp-reset-description")}</p>
 
-                    <#list configuredOtpCredentials.userOtpCredentials as otpCredential>
-                        <input id="kc-otp-credential-${otpCredential?index}" class="${properties.kcLoginOTPListInputClass!}" type="radio" name="selectedCredentialId" value="${otpCredential.id}" <#if otpCredential.id == configuredOtpCredentials.selectedCredentialId>checked="checked"</#if>>
-                        <label for="kc-otp-credential-${otpCredential?index}" class="${properties.kcLoginOTPListClass!}" tabindex="${otpCredential?index}">
-                                    <span class="${properties.kcLoginOTPListItemHeaderClass!}">
-                                        <span class="${properties.kcLoginOTPListItemIconBodyClass!}">
-                                          <i class="${properties.kcLoginOTPListItemIconClass!}" aria-hidden="true"></i>
-                                        </span>
-                                        <span class="${properties.kcLoginOTPListItemTitleClass!}">${otpCredential.userLabel}</span>
-                                    </span>
-                        </label>
-                    </#list>
+                    <div class="${properties.kcOtpCredentialListClass!} kc-otp-credential-selection" role="radiogroup" aria-labelledby="kc-otp-reset-form-description">
+                        <@otpCredentialCard.cards credentials=configuredOtpCredentials.userOtpCredentials selectedId=configuredOtpCredentials.selectedCredentialId!'' />
+                    </div>
 
                     <div class="${properties.kcFormGroupClass!}">
                         <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
