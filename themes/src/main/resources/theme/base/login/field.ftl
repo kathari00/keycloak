@@ -1,5 +1,5 @@
 <#-- Nest a custom control in <@field.group name="field-id" label=msg("labelKey")> for its label and errors. -->
-<#macro group name label error="" required=false errorId="input-error-${name}">
+<#macro group name label error="" required=false errorId="input-error-${name}" renderError=true>
 
 <div class="${properties.kcFormGroupClass!}">
     <div class="${properties.kcFormGroupLabelClass!}">
@@ -16,7 +16,7 @@
     <div class="${properties.kcFormGroupControlClass!}">
         <#nested>
 
-        <@errorMessage name=name error=error errorId=errorId/>
+        <#if renderError><@errorMessage name=name error=error errorId=errorId/></#if>
     </div>
 </div>
 
@@ -66,7 +66,7 @@
 <#-- Use <@field.password name="password" label=msg("password")>; nest optional helper text or controls. -->
 <#macro password name label value="" required=false forgotPassword=false fieldName=name error=messagesPerField.get(fieldName) autocomplete="off" autofocus=false>
   <#local helperItems><#compress><#nested></#compress></#local>
-  <@group name=name label=label error=error required=required>
+  <@group name=name label=label error=error required=required renderError=false>
     <div class="${properties.kcInputGroup!}">
       <div class="${properties.kcInputGroupItemClass!} ${properties.kcFill!}">
         <span class="${properties.kcInputClass!} <#if error?has_content>${properties.kcError!}</#if>">
@@ -86,6 +86,7 @@
         </button>
       </div>
     </div>
+    <@errorMessage name=name error=error/>
     <#if helperItems?has_content || forgotPassword>
     <div class="${properties.kcFormHelperTextClass!}" aria-live="polite">
         <div class="${properties.kcInputHelperTextClass!}">
