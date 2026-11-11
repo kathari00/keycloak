@@ -145,6 +145,8 @@ hr {
 #kc-social-providers .pf-v6-c-button.pf-m-tertiary {
     --pf-v6-c-button--m-tertiary--BorderColor: var(--pf-t--global--border--color--default);
     --pf-v6-c-button--m-tertiary--hover--BorderColor: var(--pf-t--global--border--color--hover);
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 #kc-social-providers ul > li:last-child {
