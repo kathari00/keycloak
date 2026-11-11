@@ -204,6 +204,11 @@ p.instruction:last-child,
     margin-bottom: 0;
 }
 
+#kc-otp-reset-form .pf-v6-c-tile:focus-within {
+    outline: var(--pf-t--global--focus-ring--width--offset) solid var(--pf-t--global--focus-ring--color--default);
+    outline-offset: var(--pf-t--global--focus-ring--position--offset);
+}
+
 .form-actions {
   margin-bottom: var(--pf-t--global--spacer--md);
 }
