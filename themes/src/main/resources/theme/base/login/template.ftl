@@ -28,6 +28,7 @@
 
 <#-- Use <@layout.registrationLayout; section> and render the requested header, form, info, or socialProviders section. -->
 <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false>
+<#global kcLoginActionForms = true>
 <!DOCTYPE html>
 <html class="${properties.kcHtmlClass!}" lang="${lang}"<#if realm.internationalizationEnabled> dir="${(locale.rtl)?then('rtl','ltr')}"</#if>>
 
@@ -253,20 +254,24 @@
         <#if auth?has_content && auth.showTryAnotherWayLink()>
           <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post" novalidate="novalidate">
               <input type="hidden" name="tryAnotherWay" value="on"/>
+              <#if !kcTryAnotherWayRendered??>
               <a id="try-another-way" href="javascript:document.forms['kc-select-try-another-way-form'].requestSubmit()"
                   class="${properties.kcButtonClass!} ${properties.kcButtonSecondaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcMarginTopClass!}">
                     ${msg("doTryAnotherWay")}
               </a>
+              </#if>
           </form>
         </#if>
 
         <#if switchOrganizationEnabled?? && switchOrganizationEnabled>
           <form id="kc-switch-organization-form" action="${url.loginAction}" method="post" novalidate="novalidate">
               <input type="hidden" name="switchOrganization" value="true"/>
+              <#if !kcSwitchOrganizationRendered??>
               <a id="switch-organization" href="javascript:document.forms['kc-switch-organization-form'].requestSubmit()"
                   class="${properties.kcButtonClass!} ${properties.kcButtonSecondaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcMarginTopClass!}">
                     ${msg("doSwitchOrganization")}
               </a>
+              </#if>
           </form>
         </#if>
 

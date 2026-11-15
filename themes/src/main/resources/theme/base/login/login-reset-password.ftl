@@ -14,6 +14,8 @@
             <@buttons.actionGroup>
               <@buttons.button id="kc-form-buttons" label="doSubmit"/>
               <@buttons.buttonLink href=url.loginUrl label="backToLogin"/>
+              <@buttons.tryAnotherWay/>
+              <@buttons.switchOrganization/>
             </@buttons.actionGroup>
 
         </form>

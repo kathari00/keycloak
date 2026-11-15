@@ -12,6 +12,8 @@
                     <@buttons.button name="submitAction" id="updateProfile" value="updateProfile" label="confirmLinkIdpReviewProfile" type="secondary"/>
                 </#if>
                 <@buttons.button name="submitAction" id="linkAccount" value="linkAccount" label="confirmLinkIdpContinue"/>
+                <@buttons.tryAnotherWay/>
+                <@buttons.switchOrganization/>
             </@buttons.actionGroup>
         </form>
     </#if>

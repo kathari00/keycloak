@@ -118,6 +118,8 @@
 
             <@buttons.actionGroup>
                 <@buttons.button id="authenticateWebAuthnButton" label="webauthn-doAuthenticate" autofocus="autofocus"/>
+                <@buttons.tryAnotherWay/>
+                <@buttons.switchOrganization/>
             </@buttons.actionGroup>
         </div>
     <script type="module">

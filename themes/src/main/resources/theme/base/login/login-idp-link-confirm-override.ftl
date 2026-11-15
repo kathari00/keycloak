@@ -9,6 +9,8 @@
 
             <@buttons.actionGroup id="kc-form-buttons">
                 <@buttons.button name="submitAction" id="confirmOverride" label="" labelText=msg("confirmOverrideIdpContinue", idpDisplayName) class=["kcButtonLargeClass"] value="confirmOverride" />
+                <@buttons.tryAnotherWay/>
+                <@buttons.switchOrganization/>
             </@buttons.actionGroup>
         </form>
     </#if>

@@ -42,9 +42,9 @@
                 </div>
 
                 <@buttons.actionGroup horizontal=true id="kc-form-buttons" group=false>
-                    <@buttons.button name="login" id="kc-login" label="doContinue" fullWidth=false class=["kcButtonLargeClass"] value=msg("doContinue") />
+                    <@buttons.button name="login" id="kc-login" label="doContinue" class=["kcButtonLargeClass"] value=msg("doContinue") />
                     <#if x509.formData.isUserEnabled??>
-                        <@buttons.button name="cancel" id="kc-cancel" label="doIgnore" type="secondary" fullWidth=false class=["kcButtonLargeClass"] value=msg("doIgnore") />
+                        <@buttons.button name="cancel" id="kc-cancel" label="doIgnore" type="secondary" class=["kcButtonLargeClass"] value=msg("doIgnore") />
                     </#if>
                 </@buttons.actionGroup>
             </div>

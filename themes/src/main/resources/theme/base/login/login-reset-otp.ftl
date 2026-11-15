@@ -17,6 +17,8 @@
             </div>
             <@buttons.actionGroup id="kc-form-buttons">
                 <@buttons.button id="kc-otp-reset-form-submit" label="doSubmit" class=["kcButtonLargeClass"] value=msg("doSubmit") />
+                <@buttons.tryAnotherWay/>
+                <@buttons.switchOrganization/>
             </@buttons.actionGroup>
         </form>
     </#if>

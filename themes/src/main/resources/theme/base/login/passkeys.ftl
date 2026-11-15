@@ -1,3 +1,5 @@
+<#global kcPasskeyButtonInActionGroup = true>
+
 <#-- Use <@passkeys.conditionalUIData/> to add conditional WebAuthn data and its alternative login action. -->
 <#macro conditionalUIData>
     <#if enableWebAuthnConditionalUI?has_content>
@@ -41,8 +43,10 @@
            }
            </#outputformat>
         </script>
+        <#if !kcPasskeyButtonRendered??>
         <a id="authenticateWebAuthnButton" href="#" class="${properties.kcButtonClass!} ${properties.kcButtonSecondaryClass!(properties.kcButtonDefaultClass!'')} ${properties.kcButtonBlockClass!} ${properties.kcMarginTopClass!}">
             ${msg("webauthn-doAuthenticate")}
         </a>
+        </#if>
     </#if>
 </#macro>
